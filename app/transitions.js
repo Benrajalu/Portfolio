@@ -19,4 +19,4 @@ export default function(){
     this.use('toRight'),
     this.reverse('toLeft')
   );
-};
+}
