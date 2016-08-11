@@ -1,0 +1,10 @@
+<nav id="main-nav" class="{{if status.toWork 'toWork'}} {{if status.toAbout 'toAbout'}}">
+  <ul>
+    <li class="entry" {{action "gotoAbout"}}>{{# link-to 'about'}}About{{/ link-to}}</li>
+    <li class="logo" {{action "gotoHome"}}>{{# link-to 'index'}}{{ logo-fragment }}{{/ link-to}}</li>
+    <li class="entry" {{action "gotoWork"}}>{{# link-to 'work' }}Work{{/ link-to}}</li>
+  </ul>
+</nav>
+<div id="white-band" class="{{if status.toWork 'toWork'}} {{if status.toAbout 'toAbout'}}"></div>
+
+{{liquid-outlet}}
