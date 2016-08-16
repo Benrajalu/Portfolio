@@ -1,0 +1,23 @@
+#admin{
+  .visible-content{
+    display: block;
+    position: fixed;
+    top:0px;
+    height: 100%;
+    width: 100%;
+    z-index: 98;
+    @include transform(translateX(0px));
+    text-align: left;
+    vertical-align: middle;
+    &:after, &:before{
+      content:"";
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+    }
+    .admin-content{
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+}

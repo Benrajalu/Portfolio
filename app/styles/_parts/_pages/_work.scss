@@ -1,0 +1,95 @@
+#work{
+  .visible-content{
+    display: block;
+    position: fixed;
+    top:0px;
+    height: 100%;
+    width: 100%;
+    z-index: 98;
+    @include transform(translateX(0px));
+    text-align: left;
+    vertical-align: middle;
+    &:after, &:before{
+      content:"";
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+    }
+    .main-content{
+      display: inline-block;
+      max-width:35%;
+      width: 670px;
+      text-align: left;
+      vertical-align: middle;
+      @include transform(translateX(0px));
+    }
+    .work-entries{
+      display: inline-block;
+      width: 64%;
+      vertical-align: top;
+      .main-entries{
+        padding:10px 0px;
+        li{
+          display: block;
+          width: 50%;
+          float: left;
+          position: relative;
+          padding:0 10px;
+          .main-image{
+            display: block;
+            @include transition(all 200ms ease-out);
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            @include transform(scale(1));
+            img{
+              display: block;
+              width: 100%;
+              @include transition(all 200ms ease-out);
+              @include transform(scale(1));
+            }
+          }
+          .copy{
+            display: block;
+            background:#fff;
+            width: 440px;
+            max-width: 85%;
+            bottom:10px;
+            right:20px;
+            height: 110px;
+            line-height: 110px;
+            padding:0 10px 0px 30px;
+            position: absolute;
+            z-index: 2;
+            text-align: justify;
+            &:after{
+              content:"";
+              display: inline-block;
+              width: 100%;
+            }
+            .element{
+              display: inline-block;
+              vertical-align: middle;
+              line-height: 1;
+              h2{
+                @include rounded(bold, 24px, $black);
+                margin-bottom: 3px;
+              }
+              h3{
+                @include rounded(light, 14px, $black);
+              }
+            }
+          }
+          &:hover{
+            .main-image{
+              @include transform(scale(0.99));
+              img{
+                @include transform(scale(1.1));
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

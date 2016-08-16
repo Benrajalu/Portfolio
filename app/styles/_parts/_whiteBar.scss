@@ -1,0 +1,21 @@
+#white-band{
+  position: fixed;
+  top:0px;
+  right:50%;
+  max-width:100%;
+  width: 670px;
+  z-index: 2;
+  margin-right:-335px;
+  background:#fff;
+  height: 100%;
+  @include transition(all 200ms cubic-bezier(.16,.55,.74,.55));
+  @include transform(translateX(0px));
+  &.toWork{
+    right:100%;
+    margin-right: -670px;
+  }
+  &.toAbout{
+    right:0%;
+    margin-right: 0px;
+  }
+}

@@ -1,15 +1,24 @@
 /*jshint node:true*/
 /* global require, module */
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
+var env = EmberApp.env();
+var isProductionLikeBuild = ['production', 'staging'].indexOf(env) > -1;
+var fontRepo = 'fonts';
+var compression = 'expanded';
 
-module.exports = function(defaults) {
+if(isProductionLikeBuild) {
+  fontRepo = 'fonts';
+}
+
+var compassOptions = {
+  fontsDir: fontRepo, 
+  outputStyle: compression
+}
+
+module.exports = function(defaults, fontRepo) {
   var app = new EmberApp(defaults, {
     // Add options here
-    compassOptions: {
-      outputStyle: 'expanded',
-      fontsDir: '/portfolio/fonts/',
-      relativeAssets: true
-    }
+    compassOptions: compassOptions
   });
 
   // Use `app.import` to add additional libraries to the generated

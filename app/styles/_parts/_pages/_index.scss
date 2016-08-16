@@ -1,0 +1,38 @@
+#index{
+  .visible-content{
+    display: block;
+    position: fixed;
+    top:0px;
+    height: 100%;
+    width: 100%;
+    z-index: 98;
+    @include transform(translateX(0px));
+    text-align: center;
+    vertical-align: middle;
+    overflow: visible;
+    &:after, &:before{
+      content:"";
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+    }
+    .main-content{
+      display: inline-block;
+      max-width:100%;
+      width: 670px;
+      text-align: left;
+      vertical-align: middle;
+      @include transform(translateX(0px));
+      .identity{
+        margin-bottom: 100px;
+        h1{
+          @include rounded(medium, 26px, $black);
+          margin-bottom: 5px;
+        }
+        h2{
+          @include rounded(book, 26px, $brown);
+        }
+      }
+    }
+  }
+}

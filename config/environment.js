@@ -6,13 +6,18 @@ module.exports = function(environment) {
     environment: environment,
     rootURL: '/',
     locationType: 'auto',
+    firebase: {
+      apiKey: 'AIzaSyBNNQjA6EgA3B6XObFjkKDc4_9C8TWsSfM',
+      authDomain: "portfolio-ember.firebaseapp.com",
+      databaseURL: "https://portfolio-ember.firebaseio.com",
+      storageBucket: "portfolio-ember.appspot.com",
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
         // e.g. 'with-controller': true
       }
     },
-
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
@@ -39,7 +44,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.rootURL = '/portfolio/';
+    ENV.rootURL = '/';
     ENV.locationType = 'hash';
   }
 

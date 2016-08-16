@@ -16,5 +16,7 @@ export default Ember.Controller.extend({
     gotoHome(){
       this.get('status').empty();
     },
-  }
+  }, 
+  sortedWorks: Ember.computed.sort('model', 'sortDefinition'),
+  sortDefinition: ['rank'],
 });

@@ -1,0 +1,66 @@
+<div class="content wysiwyg" id="admin">
+  <div class="visible-content">
+    <div class="admin-content" id="new-post">
+      <h3 class="list-title">Create a new entry</h3>
+      <form>
+        <ul class="post-publish">
+          <li>
+            <label>Title</label>
+            {{input type=text required=required value=title placeholder="Title"}}
+          </li>
+          <li>
+            <label>Type</label>
+            {{input type=text required=required value=type placeholder="Type"}}
+          </li>
+          <li>
+            <label>Subtitle</label>
+            {{input type=text required=required value=subtitle placeholder="Subtitle"}}
+          </li>
+          <li>
+            <label>Teaser</label>
+            {{input type=text required=required value=teaser placeholder="Teaser Image"}}
+          </li>
+          <li>
+            <label>Logo</label>
+            {{input type=text required=required value=logo placeholder="Logo"}}
+          </li>
+          <li>
+            <label>Intro copy</label>
+            {{textarea value=intro placeholder="Intro"}}
+          </li>
+          <li>
+            <label>Body copy</label>
+            {{textarea value=body placeholder="Body"}}
+          </li>
+          <li>
+            <button {{action "publishPost"}}>Publish</button>
+          </li>
+        </ul>
+      </form>
+    </div>
+
+    <div class="admin-content" id="current-posts">
+      <h3 class="list-title">Current entries</h3>
+      <ul class="listing">
+        {{#each model as |workEntry|}}
+          <li>
+            <article>
+              <section class="element">
+                <h2>{{workEntry.title}}</h2>
+                <ul class="entry-menu">
+                  <li><a href="" class="view">View</a></li>
+                  <li><a href="" class="edit">Edit</a></li>
+                  <li><a href="" class="remove">Remove</a></li>
+                </ul>
+              </section>
+              <section class="element">
+                <img src="{{workEntry.logo}}" alt="" />
+              </section>
+            </article>
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+  {{outlet}}
+</div>
