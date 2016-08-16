@@ -1,5 +1,6 @@
 $black: #424242;
 $gold:#d5c2b7;
+$brown: #9c7568;
 
 
 @import "compass/css3";
@@ -8,6 +9,10 @@ $gold:#d5c2b7;
 @import "fonts";
 @import "mixins";
 
+*{
+  box-sizing:border-box;
+}
+
 html{
   background-color: #f6f6f6; // Old browsers
   @include filter-gradient(#f6f6f6, #ffffff, vertical); // IE6-9
@@ -15,8 +20,20 @@ html{
   height: 100%;
   position: relative;
   overflow: auto;
+  &:after{
+    content:"";
+    display: block;
+    position: absolute;
+    left:-999px;
+    background: url('../images/index-BG.jpg') top left no-repeat;
+    background: url('../images/index-BG.jpg') top left no-repeat,
+                url('../images/about-BG.jpg') top left no-repeat;
+  }
 }
 
+.liquid-container{
+  @include transform(none !important);
+}
 .liquid-child{
   > .content{
     min-height: 100vh;
@@ -32,6 +49,9 @@ html{
   z-index: 99;
   margin-right:-335px;
   @include transition(all 200ms ease-out);
+  + .liquid-container{
+    z-index: 98;
+  }
   ul{
     display: block;
     text-align: justify;
@@ -127,6 +147,7 @@ html{
   background:#fff;
   height: 100%;
   @include transition(all 200ms cubic-bezier(.16,.55,.74,.55));
+  @include transform(translateX(0px));
   &.toWork{
     right:100%;
     margin-right: -670px;
@@ -136,30 +157,247 @@ html{
     margin-right: 0px;
   }
 }
-
-#index{
-  .left-background{
-    position: fixed;
-    top:0px;
-    left:0px;
-    width: 50%;
-    height: 100%;
-    z-index: 1;
-    background:url('../images/index-BG.jpg') top left;
-    background-size: cover;
-  }
-}
-
-#about{
-  .left-background{
+#left-background{
+  position: fixed;
+  top:0px;
+  left:0px;
+  width: 100%;
+  height: 100%;
+  z-index:1;
+  @include transform(translateX(0px));
+  .ember-view{
+    display: block;
     position: fixed;
     top:0px;
     left:0px;
     width: 100%;
     height: 100%;
+    z-index:1;
+    @include transform(translateX(0px));
+  }
+  .liquid-child{
+    min-height: 100vh;
+    display: block;
+    position: relative;
+    @include transform(translateX(0px));
+  }
+  .background{
+    position: fixed;
+    top:0px;
+    left:0px;
+    height: 100%;
     z-index: 1;
+  }
+  .index-bg{
+    width: 50%;
+    background:url('../images/index-BG.jpg') top left no-repeat;
+    background-size: cover;
+  }
+  .about-bg{
+    width: 100%;
     background:url('../images/about-BG.jpg') top left no-repeat;
     background-size: auto 100%;
+  }
+}
+
+#index{
+  .visible-content{
+    display: block;
+    position: fixed;
+    top:0px;
+    height: 100%;
+    width: 100%;
+    z-index: 98;
+    @include transform(translateX(0px));
+    text-align: center;
+    vertical-align: middle;
+    overflow: visible;
+    &:after, &:before{
+      content:"";
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+    }
+    .main-content{
+      display: inline-block;
+      max-width:100%;
+      width: 670px;
+      text-align: left;
+      vertical-align: middle;
+      @include transform(translateX(0px));
+      .identity{
+        margin-bottom: 100px;
+        h1{
+          @include rounded(medium, 26px, $black);
+          margin-bottom: 5px;
+        }
+        h2{
+          @include rounded(book, 26px, $brown);
+        }
+      }
+    }
+  }
+}
+
+#about{
+  .visible-content{
+    display: block;
+    position: fixed;
+    top:0px;
+    height: 100%;
+    width: 100%;
+    z-index: 98;
+    @include transform(translateX(0px));
+    text-align: right;
+    vertical-align: middle;
+    &:after, &:before{
+      content:"";
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+    }
+    .main-content{
+      display: inline-block;
+      max-width:100%;
+      width: 670px;
+      text-align: left;
+      vertical-align: middle;
+      @include transform(translateX(0px));
+    }
+  }
+}
+
+#work{
+  .visible-content{
+    display: block;
+    position: fixed;
+    top:0px;
+    height: 100%;
+    width: 100%;
+    z-index: 98;
+    @include transform(translateX(0px));
+    text-align: left;
+    vertical-align: middle;
+    &:after, &:before{
+      content:"";
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+    }
+    .main-content{
+      display: inline-block;
+      max-width:100%;
+      width: 670px;
+      text-align: left;
+      vertical-align: middle;
+      @include transform(translateX(0px));
+    }
+  }
+}
+
+.wysiwyg{
+  .constrained-container{
+    padding:0 70px;
+    display: block;
+    width: 100%;
+  }
+  .free-container{
+    padding-left:60px;
+    width: 200%;
+    display: block;
+    &.right{
+      text-align: right;
+      padding-right: 60px;
+      padding-left:0px;
+      width: 100%;
+      position: relative;
+      left:-200px;
+      .featured-title{
+        width: 200%;
+        display: block;
+        text-align: left;
+        display: inline-block;
+      }
+    }
+    &.left{
+      width: 100%;
+      position: relative;
+      left:-30px;
+    }
+  }
+  .featured-title{
+    @include aqua(63px, $black);
+    margin-bottom: 80px;
+    line-height: 1.3;
+    strong{
+      color:$brown;
+    }
+  }
+  .copy{
+    @include rounded(light, 19px, $black);
+    line-height: 1.3;
+    a{
+      text-decoration: none;
+      color:$brown;
+      display: inline-block;
+      @include transition(all 200ms ease-out);
+      position: relative;
+      &:after{
+        content:"";
+        display: block;
+        position: absolute;
+        top:0px;
+        left:0;
+        right:0;
+        margin:0 auto;
+        width:0px;
+        height: 100%;
+        background:$brown;
+        @include transition(all 100ms ease-out);
+        z-index: -1;
+        @include opacity(0.8);
+      }
+      &:hover{
+        color:#fff;
+        padding:0 2px;
+        &:after{
+          width: 100%;
+        }
+      }
+      &.button{
+        @include rounded(medium, 19px, $brown);
+        &:after{
+          height: 2px;
+          top:100%;
+          margin-bottom: -3px;
+        }
+      }
+    }
+    strong{
+      @include rounded(medium, 19px, $black);
+      display: block;
+    }
+    footer{
+      padding-top: 40px;
+      h3{
+        @include rounded(medium, 19px, $black);
+      }
+    }
+  }
+}
+
+
+.liquid-animating{
+  #index{
+    .left-background{
+      //left:-200px;
+    }
+  }
+
+  #about{
+    .left-background{
+      //left:-200px;
+    }
   }
 }
 

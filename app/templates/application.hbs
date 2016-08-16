@@ -5,6 +5,16 @@
     <li class="entry" {{action "gotoWork"}}>{{# link-to 'work' }}Work{{/ link-to}}</li>
   </ul>
 </nav>
-<div id="white-band" class="{{if status.toWork 'toWork'}} {{if status.toAbout 'toAbout'}}"></div>
 
 {{liquid-outlet}}
+
+<div id="white-band" class="{{if status.toWork 'toWork'}} {{if status.toAbout 'toAbout'}}"></div>
+
+<div id="left-background">
+  {{#liquid-if status.toAbout class='about-mode'}}
+    <div class="background about-bg"></div>
+  {{/liquid-if}}
+  {{#liquid-if status.toHome class='index-mode'}}
+    <div class="background index-bg"></div>
+  {{/liquid-if}}
+</div>

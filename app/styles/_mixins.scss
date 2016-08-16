@@ -44,3 +44,9 @@
       font-family:'gotham-rounded-medium';
     }
   }
+
+  @mixin aqua($size, $color){
+    font-size:$size;
+    color:$color;
+    font-family: 'aqua-grotesque';
+  }
