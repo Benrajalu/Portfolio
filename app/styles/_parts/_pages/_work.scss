@@ -34,7 +34,7 @@
           width: 50%;
           float: left;
           position: relative;
-          padding:0 10px;
+          padding:0 5px;
           .main-image{
             display: block;
             @include transition(all 200ms ease-out);
@@ -84,7 +84,7 @@
             .main-image{
               @include transform(scale(0.99));
               img{
-                @include transform(scale(1.1));
+                @include transform(scale(1.05));
               }
             }
           }

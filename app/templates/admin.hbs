@@ -2,40 +2,52 @@
   <div class="visible-content">
     <div class="admin-content" id="new-post">
       <h3 class="list-title">Create a new entry</h3>
-      <form>
-        <ul class="post-publish">
-          <li>
-            <label>Title</label>
-            {{input type=text required=required value=title placeholder="Title"}}
-          </li>
-          <li>
-            <label>Type</label>
-            {{input type=text required=required value=type placeholder="Type"}}
-          </li>
-          <li>
-            <label>Subtitle</label>
-            {{input type=text required=required value=subtitle placeholder="Subtitle"}}
-          </li>
-          <li>
-            <label>Teaser</label>
-            {{input type=text required=required value=teaser placeholder="Teaser Image"}}
-          </li>
-          <li>
-            <label>Logo</label>
-            {{input type=text required=required value=logo placeholder="Logo"}}
-          </li>
-          <li>
-            <label>Intro copy</label>
-            {{textarea value=intro placeholder="Intro"}}
-          </li>
-          <li>
-            <label>Body copy</label>
-            {{textarea value=body placeholder="Body"}}
-          </li>
-          <li>
-            <button {{action "publishPost"}}>Publish</button>
-          </li>
-        </ul>
+      <form class="post-publish">
+        {{#if teaser }}
+          <div class="teaser-preview">
+            <article>
+              <figure class="main-image">
+                <img src="{{teaser}}" alt="" class="teaser-image">
+              </figure>
+              <div class="copy">
+                <section class="element">
+                  <h2>{{title}}</h2>
+                  <h3>{{type}}</h3>
+                </section>
+                <section class="element">
+                  <img src="{{logo}}" alt="" class="logo-image">
+                </section>
+              </div>
+            </article>
+          </div>
+        {{/if }}
+        <fieldset>
+          {{input type="text" class="title-input" required="required" value=title placeholder="Title"}}
+        </fieldset>
+        <fieldset>
+          {{input type="text" class="small type-input" required="required" value=type placeholder="Type"}}
+        </fieldset>
+        <fieldset>
+          <label>Teaser URL</label>
+          {{input type="text" class="small" required="required" value=teaser }}
+        </fieldset>
+        <fieldset>
+          <label>Logo URL</label>
+          {{input type="text" class="small" required="required" value=logo }}
+        </fieldset>
+        <fieldset>
+          <label>Subtitle</label>
+          {{input type="text" required="required" value=subtitle placeholder="Subtitle"}}
+        </fieldset>
+        <fieldset>
+          <label>Intro copy</label>
+          {{textarea value=intro placeholder="Intro"}}
+        </fieldset>
+        <fieldset>
+          <label>Body copy</label>
+          {{textarea value=body placeholder="Body"}}
+        </fieldset>
+        <button {{action "publishPost"}}>Publish</button>
       </form>
     </div>
 
