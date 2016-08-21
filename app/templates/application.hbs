@@ -1,12 +1,4 @@
-{{#if status.toAdmin }}
-  <nav id="main-nav" class="{{if status.toAdmin 'toWork'}}">
-    <ul>
-      <li class="entry" {{action "gotoHome"}}>{{# link-to 'index'}}Website{{/ link-to}}</li>
-      <li class="logo" {{action "gotoHome"}}>{{# link-to 'index'}}{{ logo-fragment }}{{/ link-to}}</li>
-      <li class="entry" {{action "gotoAdmin"}}>{{# link-to 'admin' }}Admin{{/ link-to}}</li>
-    </ul>
-  </nav>
-{{else}}
+{{unless status.toAdmin }}
   <nav id="main-nav" class="{{if status.toWork 'toWork'}} {{if status.toAbout 'toAbout'}}">
     <ul>
       <li class="entry" {{action "gotoAbout"}}>{{# link-to 'about'}}About{{/ link-to}}</li>
@@ -14,11 +6,13 @@
       <li class="entry" {{action "gotoWork"}}>{{# link-to 'work' }}Work{{/ link-to}}</li>
     </ul>
   </nav>
-{{/if}}
+{{/unless}}
 
 {{liquid-outlet}}
 
-<div id="white-band" class="{{if status.toWork 'toWork'}} {{if status.toAbout 'toAbout'}} {{if status.toAdmin 'toWork'}}"></div>
+{{#unless status.toAdmin }}
+  <div id="white-band" class="{{if status.toWork 'toWork'}} {{if status.toAbout 'toAbout'}} {{if status.toAdmin 'toWork'}}"></div>
+{{/unless}}
 
 <div id="left-background">
   {{#liquid-if status.toAbout class='about-mode'}}

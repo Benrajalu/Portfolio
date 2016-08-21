@@ -40,4 +40,11 @@ export default function(){
     this.use('toRight'),
     this.reverse('toLeft')
   );
+
+  this.transition(
+    this.hasClass('admin-section'),
+    this.toValue(true),
+    this.use('toUp'),
+    this.reverse('toDown')
+  );
 }

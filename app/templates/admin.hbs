@@ -1,78 +1,94 @@
 <div class="content wysiwyg" id="admin">
+  <nav id="admin-nav">
+    <ul>
+      <li><button {{ action "goToList"}} class="{{if theList "active" }}"><span>Current <br/><strong>projects</strong> ({{ model.length }})</span></button></li>
+      <li><button {{ action "goToNew"}} class="{{if theNew "active" }}"><span>New <br/><strong>project</strong></span></button></li>
+      <li {{action "gotoHome"}}>{{# link-to 'index'}}Back to site{{/ link-to}}</li>
+    </ul>
+  </nav>
+  
   <div class="visible-content">
-    <div class="admin-content" id="new-post">
-      <h3 class="list-title">Create a new entry</h3>
-      <form class="post-publish">
-        {{#if teaser }}
-          <div class="teaser-preview">
-            <article>
-              <figure class="main-image">
-                <img src="{{teaser}}" alt="" class="teaser-image">
-              </figure>
-              <div class="copy">
+    {{#liquid-if theList class="admin-section"}}
+      <div class="admin-content" id="current-posts">
+        <h3 class="list-title">Current entries</h3>
+        <ul class="listing">
+          {{#each model as |workEntry|}}
+            <li>
+              <article>
                 <section class="element">
-                  <h2>{{title}}</h2>
-                  <h3>{{type}}</h3>
+                  <h2>{{workEntry.title}}</h2>
+                  <ul class="entry-menu">
+                    <li><a href="" class="view">View</a></li>
+                    <li><a href="" class="edit">Edit</a></li>
+                    <li><a href="" class="remove">Remove</a></li>
+                  </ul>
                 </section>
-                <section class="element">
-                  <img src="{{logo}}" alt="" class="logo-image">
+                <section class="element logo">
+                  <img src="{{workEntry.logo}}" alt="" />
                 </section>
-              </div>
-            </article>
+              </article>
+            </li>
+          {{/each}}
+        </ul>
+      </div>
+    {{/liquid-if}}
+    {{#liquid-if theNew class="admin-section"}}
+      <div class="admin-content" id="new-post">
+        <h3 class="list-title">Create a new entry</h3>
+        <form class="post-publish">
+          {{#if teaser }}
+            <div class="teaser-preview">
+              <article>
+                <figure class="main-image">
+                  <img src="{{teaser}}" alt="" class="teaser-image">
+                </figure>
+                <div class="copy">
+                  <section class="element">
+                    <h2>{{title}}</h2>
+                    <h3>{{type}}</h3>
+                  </section>
+                  <section class="element">
+                    <img src="{{logo}}" alt="" class="logo-image">
+                  </section>
+                </div>
+              </article>
+            </div>
+          {{/if }}
+          <fieldset>
+            <label for="">Title</label>
+            {{input type="text" class="title-input" required="required" value=title }}
+          </fieldset>
+          <fieldset>
+            <label for="">Type</label>
+            {{input type="text" class="small type-input" required="required" value=type }}
+          </fieldset>
+          <div class="images">
+            <fieldset>
+              <label>Teaser URL</label>
+              {{input type="text" class="small" required="required" value=teaser }}
+            </fieldset>
+            <fieldset>
+              <label>Logo URL</label>
+              {{input type="text" class="small" required="required" value=logo }}
+            </fieldset>
           </div>
-        {{/if }}
-        <fieldset>
-          {{input type="text" class="title-input" required="required" value=title placeholder="Title"}}
-        </fieldset>
-        <fieldset>
-          {{input type="text" class="small type-input" required="required" value=type placeholder="Type"}}
-        </fieldset>
-        <fieldset>
-          <label>Teaser URL</label>
-          {{input type="text" class="small" required="required" value=teaser }}
-        </fieldset>
-        <fieldset>
-          <label>Logo URL</label>
-          {{input type="text" class="small" required="required" value=logo }}
-        </fieldset>
-        <fieldset>
-          <label>Subtitle</label>
-          {{input type="text" required="required" value=subtitle placeholder="Subtitle"}}
-        </fieldset>
-        <fieldset>
-          <label>Intro copy</label>
-          {{textarea value=intro placeholder="Intro"}}
-        </fieldset>
-        <fieldset>
-          <label>Body copy</label>
-          {{textarea value=body placeholder="Body"}}
-        </fieldset>
-        <button {{action "publishPost"}}>Publish</button>
-      </form>
-    </div>
-
-    <div class="admin-content" id="current-posts">
-      <h3 class="list-title">Current entries</h3>
-      <ul class="listing">
-        {{#each model as |workEntry|}}
-          <li>
-            <article>
-              <section class="element">
-                <h2>{{workEntry.title}}</h2>
-                <ul class="entry-menu">
-                  <li><a href="" class="view">View</a></li>
-                  <li><a href="" class="edit">Edit</a></li>
-                  <li><a href="" class="remove">Remove</a></li>
-                </ul>
-              </section>
-              <section class="element">
-                <img src="{{workEntry.logo}}" alt="" />
-              </section>
-            </article>
-          </li>
-        {{/each}}
-      </ul>
-    </div>
+          <fieldset>
+            <label>Subtitle</label>
+            {{input type="text" required="required" value=subtitle }}
+          </fieldset>
+          <fieldset>
+            <label>Intro copy</label>
+            {{textarea value=intro }}
+          </fieldset>
+          <fieldset>
+            <label>Body copy</label>
+            {{textarea value=body }}
+          </fieldset>
+          <button {{action "publishPost"}} class="submit">Publish</button>
+        </form>
+      </div>
+    {{/liquid-if}}
   </div>
+  
   {{outlet}}
 </div>

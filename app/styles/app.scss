@@ -13,11 +13,11 @@ $brown: #9c7568;
   box-sizing:border-box;
 }
 
-html{
+body{
   background-color: #f6f6f6; // Old browsers
   @include filter-gradient(#f6f6f6, #ffffff, vertical); // IE6-9
   @include background-image(linear-gradient(top,  #f6f6f6 47%,#ffffff 100%));
-  height: 100%;
+  min-height: 100%;
   position: relative;
   overflow: auto;
   &:after{
@@ -135,5 +135,8 @@ html{
 @import "_parts/_pages/work";
 @import "_parts/_pages/admin";
 
-
+#admin-nav{
+  position: relative;
+  z-index: 999;
+}
 

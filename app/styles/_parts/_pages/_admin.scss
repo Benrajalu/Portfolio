@@ -1,22 +1,86 @@
 #admin{
+  width: 98%;
+  position: relative;
+  z-index: 999;
+  max-width: 700px;
+  margin:0 auto;
+  @include clearfix();
+  #admin-nav ul{
+    display: block;
+    text-align: left;
+    height: 80px;
+    line-height: 80px;
+    margin-top: 60px;
+    position: relative;
+    top:1px;
+    &:after{
+      content:"";
+      display: inline-block;
+      width: 100%;
+    }
+    li{
+      display: inline-block;
+      vertical-align: middle;
+      height: 80px;
+      line-height: 80px;
+      &:last-child{
+        float: right;
+        a{
+          @include rounded(medium, 14px, #AEB3B5);
+          position: relative;
+          left:0px;
+          @include transition(all 200ms ease-out);
+          text-decoration: none;
+          &:hover{
+            left:-3px;
+            color:$black;
+          }
+        }
+      }
+      button{
+        text-align: left;
+        height: 80px;
+        border:0px;
+        line-height: 80px;
+        background:transparent;
+        padding:0 20px;
+        padding-right: 40px;
+        border:1px solid #E8E8E8;
+        border-bottom: 0px;
+        @include border-radius(2px 2px 0px 0px);
+        @include rounded(bold, 12px, #AEB3B5);
+        text-transform: uppercase;
+        @include transition(all 200ms ease-out);
+        cursor: pointer;
+        margin-right: 5px;
+        strong{
+          font-size: 16px;
+        }
+        &.active{
+          background:#fff;
+          color:$black;
+        }
+        &:hover{
+          color:$black
+        }
+        span{
+          display: inline-block;
+          line-height: 1;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
   .visible-content{
     display: block;
     width: 100%;
     position: relative;
-    z-index: 98;
-    padding: 200px 80px 0px;
-    @include clearfix();
+    background: #fff;
+    padding:40px 30px;
+    border:1px solid #E8E8E8;
+    @include border-radius(2px 2px 0px 0px);
     .admin-content{
       display: block;
-      float: left;
-      &#new-post{
-        width: 40%;
-        padding-right: 40px;
-      }
-      &#current-post{
-        width:60%;
-      }
-
       .list-title{
         @include rounded(medium, 22px, $black);
         margin-bottom: 40px;
@@ -30,6 +94,20 @@
           margin-bottom: 5px;
           display: block;
         }
+        .images{
+          text-align: justify;
+          &:after{
+            content:"";
+            display: inline-block;
+            width: 100%;
+            margin-top: -10px;
+          }
+          fieldset{
+            display: inline-block;
+            vertical-align: top;
+            width: 48%;
+          }
+        }
         textarea{
           display: block;
           line-height: 20px;
@@ -42,27 +120,20 @@
           height: 120px;
           resize:vertical;
           max-height: 250px;
+          padding:10px;
         }
         input[type="text"]{
+          padding:0 10px;
           display: block;
-          line-height: 20px;
-          padding:0px;
+          line-height: 30px;
           background: white;
           border:0px;
-          border-bottom:1px solid #f2f2f2;
+          border:1px solid #f2f2f2;
           @include rounded(medium, 19px, $black);
-          margin-bottom: 10px;
+          margin-bottom: 20px;
           width: 100%;
-          &.title-input{
-            line-height: 25px;
-            margin-bottom: 3px;
-          }
           &.small.type-input{
             line-height: 25px;
-          }
-          &.small{
-            line-height: 15px;
-            @include rounded(light, 14px, $black);
           }
         }
         .teaser-preview{
@@ -111,6 +182,93 @@
               }
               h3{
                 @include rounded(light, 14px, $black);
+              }
+            }
+          }
+        }
+        .submit{
+          display: inline-block;
+          border:0px;
+          background:$gold;
+          line-height: 30px;
+          padding:0px 15px;
+          @include rounded(bold, 16px, #fff);
+          text-transform: uppercase;
+          @include transition(all 200ms ease-out);
+          cursor: pointer;
+          &:hover{
+            background: #333;
+          }
+        }
+      }
+
+      .listing{
+        border-top:1px solid #DBE1E5;
+        > li{
+          display: block;
+          margin-bottom: 0px;
+          article{
+            display: table;
+            border-bottom:1px solid #DBE1E5;
+            vertical-align: middle;
+            width: 100%;
+            table-layout: fixed;
+            padding: 10px 0px 10px 20px;
+            .element{
+              display: table-cell;
+              vertical-align: middle;
+              height: 70px;
+              h2{
+                @include rounded(bold, 18px, $black);
+                margin-bottom: 5px;
+              }
+              .entry-menu{
+                li{
+                  display: inline-block;
+                  vertical-align: middle;
+                  line-height: 19px;
+                  border-left:1px solid #AEB3B5;
+                  padding:0 8px 0px 10px;
+                  a{
+                    @include rounded(light, 14px, $black);
+                    display: inline-block;
+                    vertical-align: middle;
+                    @include transition(all 200ms ease-out);
+                    position: relative;
+                    text-decoration: none;
+                    top:0px;
+                    &:after{
+                      content:"";
+                      display: block;
+                      width: 0px;
+                      height: 2px;
+                      background-color: $gold;
+                      position: absolute;
+                      bottom:-2px;
+                      left:0px;
+                      @include transition(all 200ms ease-out);
+                    }
+                    &:hover{
+                      top:1px;
+                      &:after{
+                        width: 100%;
+                      }
+                    }
+                  }
+                  &:first-child{
+                    border-left:0px;
+                    padding-left: 0px;
+                  }
+                }
+              }
+              &.logo{
+                width: 100px;
+                padding:0 20px;
+                vertical-align: middle;
+                img{
+                  max-width: 100%;
+                  display: inline-block;
+                }
               }
             }
           }
