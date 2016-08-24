@@ -9,6 +9,7 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.route('about');
   this.route('work');
+  this.route('view-work', { path: 'work/:uri' });
   this.route('new-work');
   this.route('admin');
 });

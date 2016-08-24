@@ -1,6 +1,8 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
+  uri: DS.attr('string'),
+  url: DS.attr('string'),
   title: DS.attr('string'),
   type: DS.attr('string'),
   subtitle: DS.attr('string'),

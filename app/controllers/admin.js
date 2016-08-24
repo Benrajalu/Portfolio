@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  sortProperties: ['timestamp'],
+  sortProperties: ['uri'],
   sortAscending: false, // sorts post by timestamp
   status: Ember.inject.service(),
   theList: true, 
@@ -34,14 +34,16 @@ export default Ember.Controller.extend({
     },
     publishPost: function() {
       var newPost = this.store.createRecord('work-entry', {
+        uri: this.get('uri'),
+        url: this.get('url'),
         title: this.get('title'),
         type: this.get('type'),
         subtitle: this.get('subtitle'),
         teaser: this.get('teaser'),
         logo: this.get('logo'),
         intro: this.get('intro'),
-        body: this.get('body'),
-        timestamp: new Date().getTime()
+        body: this.get('body')
+        rank: this.get('rank')
       });
       newPost.save();
     }

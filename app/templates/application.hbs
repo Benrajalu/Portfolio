@@ -1,4 +1,4 @@
-{{unless status.toAdmin }}
+{{#unless status.toAdmin }}
   <nav id="main-nav" class="{{if status.toWork 'toWork'}} {{if status.toAbout 'toAbout'}}">
     <ul>
       <li class="entry" {{action "gotoAbout"}}>{{# link-to 'about'}}About{{/ link-to}}</li>

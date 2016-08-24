@@ -21,6 +21,13 @@ export default function(){
   );
 
   this.transition(
+    this.fromRoute('work'),
+    this.toRoute('view-work'),
+    this.use('toUp'),
+    this.reverse('toDown')
+  );
+
+  this.transition(
     this.hasClass('about-mode'),
     this.toValue(true),
     this.use('toRight'),

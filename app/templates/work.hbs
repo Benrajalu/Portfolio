@@ -14,23 +14,27 @@
       <ul class="main-entries">
         {{#each sortedWorks as |workEntry|}}
           <li data-order="{{ workEntry.rank }}">
-            <article>
-              <figure class="main-image">
-                <img src="{{workEntry.teaser}}" alt="">
-              </figure>
-              <div class="copy">
-                <section class="element">
-                  <h2>{{workEntry.title}}</h2>
-                  <h3>{{workEntry.type}}</h3>
-                </section>
-                <section class="element">
-                  <img src="{{workEntry.logo}}" alt="">
-                </section>
-              </div>
-            </article>
+            {{#link-to "view-work" workEntry.uri}}
+              <article>
+                <figure class="main-image">
+                  <img src="{{workEntry.teaser}}" alt="">
+                </figure>
+                <div class="copy">
+                  <section class="element">
+                    <h2>{{workEntry.title}}</h2>
+                    <h3>{{workEntry.type}}</h3>
+                  </section>
+                  <section class="element">
+                    <img src="{{workEntry.logo}}" alt="">
+                  </section>
+                </div>
+              </article>
+            {{/link-to}}
           </li>
         {{/each}}
       </ul>
     </div>
   </div>
 </div>
+
+{{outlet}}
