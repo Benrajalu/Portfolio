@@ -16,9 +16,16 @@ export default Ember.Component.extend({
     });
   },
   actions: {
+    postSaved : function(){
+      this.sendAction('postSaved');
+    },
     publishPost: function() {
       if(this.get('uri') && this.get('url') && this.get('title') && this.get('type') && this.get('subtitle') && this.get('teaser') && this.get('logo') && this.get('intro') && this.get('body') && this.get('rank')){
         var store = this.get('store');
+        var scope =  this;
+        var button = document.getElementById('submit');
+        button.innerHTML= 'Uploading...';
+        var bubble = this.send('postSaved');
         var newPost = store.createRecord('work-entry', {
           uri: this.get('uri'),
           url: this.get('url'),
@@ -31,7 +38,23 @@ export default Ember.Component.extend({
           body: this.get('body'),
           rank: this.get('rank')
         });
-        newPost.save();
+        newPost.save().then(function() {
+          button.innerHTML= 'Submit a new one';
+          document.getElementById('new-post-form').reset();
+          scope.send('postSaved');
+          scope.set('uri', '');
+          scope.set('url', '');
+          scope.set('title', '');
+          scope.set('type', '');
+          scope.set('subtitle', '');
+          scope.set('teaser', '');
+          scope.set('logo', '');
+          scope.set('intro', '');
+          scope.set('body', '');
+          scope.set('rank', '');
+        }, function() {
+          button.innerHTML= "Well it's a dud";
+        });;
       }
       else{
         var button = document.getElementById('submit');

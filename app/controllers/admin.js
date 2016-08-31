@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  store: Ember.inject.service(),
   sortProperties: ['uri'],
   sortAscending: false, // sorts post by timestamp
   status: Ember.inject.service(),
@@ -31,6 +32,14 @@ export default Ember.Controller.extend({
     goToNew() {
       this.setProperties({'theList': false, 'theNew': true});
       console.log('status: the new');
+    },
+    deleteRecord(post){
+      var store = this.get('store');
+      if(confirm('Are you really really sure?')){
+        store.findRecord('work-entry', post, { backgroundReload: false }).then(function(post) {
+          post.destroyRecord(); // => DELETE to /posts/2
+        });
+      }
     }
   }
 });

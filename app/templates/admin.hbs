@@ -18,9 +18,9 @@
                 <section class="element">
                   <h2>{{workEntry.title}}</h2>
                   <ul class="entry-menu">
-                    <li><a href="" class="view">View</a></li>
+                    <li><a href="#" class="view">View</a></li>
                     <li><a href="" class="edit">Edit</a></li>
-                    <li><a href="" class="remove">Remove</a></li>
+                    <li><a href="#" {{ action "deleteRecord" workEntry.id }} class="remove">Remove</a></li>
                   </ul>
                 </section>
                 <section class="element logo">
@@ -33,7 +33,7 @@
       </div>
     {{/liquid-if}}
     {{#liquid-if theNew class="admin-section"}}
-      {{#admin-new }}{{/admin-new}}
+      {{#admin-new postSaved="goToList" }}{{/admin-new}}
     {{/liquid-if}}
   </div>
 
