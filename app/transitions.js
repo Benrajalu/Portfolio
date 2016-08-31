@@ -28,6 +28,20 @@ export default function(){
   );
 
   this.transition(
+    this.fromRoute('view-work'),
+    this.toRoute('index'),
+    this.use('toRight'),
+    this.reverse('toLeft')
+  );
+
+  this.transition(
+    this.fromRoute('view-work'),
+    this.toRoute('about'),
+    this.use('toRight'),
+    this.reverse('toLeft')
+  );
+
+  this.transition(
     this.hasClass('about-mode'),
     this.toValue(true),
     this.use('toRight'),

@@ -1,11 +1,15 @@
 {{#each model as |post|}}
-  <div class="content wysiwyg" id="work">
-    <div class="visible-content">
-      <div class="main-content">
-        <div class="free-container left">
-          <h3 class="featured-title">{{post.title}}</h3>
-        </div>
+  <div class="content wysiwyg" id="work-detail">
+    <header class="title-wrap">
+      <h3 class="title"><hr>{{post.title}}</h3>
+      <h3 class="subtitle">{{post.subtitle}}</h3>
+    </header>
+    <article class="contents">
+      <div class="intro">
+        {{post.intro}}
+        <p>URL: <a href="{{post.url}}" target="_blank">{{post.url}}</a></p>
       </div>
-    </div>
+      {{post.body}}
+    </article>
   </div>
 {{/each}}

@@ -1,0 +1,70 @@
+<div class="admin-content" id="new-post">
+  <h3 class="list-title">Create a new entry</h3>
+  <form class="post-publish">
+    {{#if teaser }}
+      <div class="teaser-preview">
+        <article>
+          <figure class="main-image">
+            <img src="{{teaser}}" alt="" class="teaser-image">
+          </figure>
+          <div class="copy">
+            <section class="element">
+              <h2>{{title}}</h2>
+              <h3>{{type}}</h3>
+            </section>
+            <section class="element">
+              <img src="{{logo}}" alt="" class="logo-image">
+            </section>
+          </div>
+        </article>
+      </div>
+    {{/if }}
+    <fieldset>
+      <label for="">Title</label>
+      {{input type="text" class="title-input" required="true" value=title }}
+    </fieldset>
+    <div class="images">
+      <fieldset>
+        <label for="">Id</label>
+        {{input type="text" class="small type-input" required="true" value=uri }}
+      </fieldset>
+      <fieldset>
+        <label for="">URL</label>
+        {{input type="text" class="small type-input" required="true" value=url }}
+      </fieldset>
+    </div>
+    <div class="images">
+      <fieldset>
+        <label for="">Type</label>
+        {{input type="text" class="small type-input" required="true" value=type }}
+      </fieldset>
+      <fieldset>
+        <label for="">Rank</label>
+        {{input type="text" class="small type-input" required="true" value=rank }}
+      </fieldset>
+    </div>
+    <div class="images">
+      <fieldset>
+        <label>Teaser URL</label>
+        {{input type="text" class="small" required="true" value=teaser }}
+      </fieldset>
+      <fieldset>
+        <label>Logo URL</label>
+        {{input type="text" class="small" required="true" value=logo }}
+      </fieldset>
+    </div>
+    <fieldset>
+      <label>Subtitle</label>
+      {{input type="text" required="true" value=subtitle }}
+    </fieldset>
+    <fieldset>
+      <label>Intro copy</label>
+      {{tinymce-editor options=options required="true" value=intro}}
+    </fieldset>
+    <fieldset>
+      <label>Body copy</label>
+      {{tinymce-editor options=options required="true" value=body}}
+    </fieldset>
+    <button type="submit" {{action "publishPost"}} class="submit" id="submit">Publish</button>
+  </form>
+</div>

@@ -128,11 +128,14 @@ body{
 @import "_parts/mainNav";
 @import "_parts/whiteBar";
 
+@import "_parts/_plugins/redactor";
+
 @import "_parts/leftBackgrounds";
 
 @import "_parts/_pages/index";
 @import "_parts/_pages/about";
 @import "_parts/_pages/work";
+@import "_parts/_pages/work-detail";
 @import "_parts/_pages/admin";
 
 #admin-nav{

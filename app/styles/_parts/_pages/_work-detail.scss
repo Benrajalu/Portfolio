@@ -1,0 +1,59 @@
+#work-detail{
+  padding-top: 200px;
+  height: 100vh;
+  position: relative;
+  z-index: 97;
+  width: 100%;
+  max-width: 1200px;
+  margin:0 auto;
+  overflow: hidden;
+  .title-wrap{
+    width: 45%;
+    position: absolute;
+    top:200px;
+    z-index: 98;
+    text-align: right;
+    left:0px;
+    .title{
+      hr{
+        display: inline-block;
+        vertical-align: middle;
+        width: 90px;
+        height: 16px;
+        background:$gold;
+        padding:0px;
+        margin:0px 20px 0px 0px;
+        border:0px;
+      }
+      @include rounded(medium,44px, #424242);
+    }
+    .subtitle{
+      @include rounded(book, 25px, $brown);
+    }
+  }
+  .contents{
+    position: absolute;
+    top:0px;
+    left:0px;
+    overflow: auto;
+    height: 100%;
+    z-index: 97;
+    padding: 200px 0px;
+    width: 100%;
+    .intro{
+      padding-left: 50%;
+      margin-bottom: 40px;
+    }
+    p{
+      @include rounded(light, 16px, #424242);
+      line-height: 1.3;
+    }
+    a{
+      color:$brown;
+      @include transition(all 200ms ease-out);
+      &:hover{
+        color:$black;
+      }
+    }
+  }
+}
