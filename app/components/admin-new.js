@@ -75,6 +75,6 @@ export default Ember.Component.extend({
     ],
     toolbar: "undo redo | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
     body_class: 'tinyMCE-editor',
-    content_css : './assets/portfolio.css'
+    content_css : '/assets/portfolio.css'
   }
 });

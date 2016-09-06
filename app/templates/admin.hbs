@@ -1,25 +1,25 @@
 <div class="content wysiwyg" id="admin">
   <nav id="admin-nav">
     <ul>
-      <li><button {{ action "goToList"}} class="{{if theList "active" }}"><span>Current <br/><strong>projects</strong> ({{ model.length }})</span></button></li>
-      <li><button {{ action "goToNew"}} class="{{if theNew "active" }}"><span>New <br/><strong>project</strong></span></button></li>
+      <li><button {{ action "goToList"}} class="{{if status.list "active" }}"><span>Current <br/><strong>projects</strong> ({{ model.length }})</span></button></li>
+      <li><button {{ action "goToNew"}} class="{{if status.new "active" }}"><span>New <br/><strong>project</strong></span></button></li>
       <li {{action "gotoHome"}}>{{# link-to 'index'}}Back to site{{/ link-to}}</li>
     </ul>
   </nav>
 
   <div class="visible-content">
-    {{#liquid-if theList class="admin-section"}}
+    {{#liquid-if status.list class="admin-section"}}
       <div class="admin-content" id="current-posts">
         <h3 class="list-title">Current entries</h3>
         <ul class="listing">
-          {{#each model as |workEntry|}}
+          {{#each sortedWorks as |workEntry|}}
             <li>
               <article>
                 <section class="element">
-                  <h2>{{workEntry.title}}</h2>
+                  <h2>{{{workEntry.title}}}</h2>
                   <ul class="entry-menu">
-                    <li><a href="#" class="view">View</a></li>
-                    <li><a href="" class="edit">Edit</a></li>
+                    <li>{{#link-to "view-work" workEntry.uri class="view"}}View{{/link-to}}</li>
+                    <li {{ action "editRecord"}}>{{#link-to "admin.edit-work" workEntry.uri class="edit"}}Edit{{/link-to}}</li>
                     <li><a href="#" {{ action "deleteRecord" workEntry.id }} class="remove">Remove</a></li>
                   </ul>
                 </section>
@@ -32,10 +32,11 @@
         </ul>
       </div>
     {{/liquid-if}}
-    {{#liquid-if theNew class="admin-section"}}
+    {{#liquid-if status.new class="admin-section"}}
       {{#admin-new postSaved="goToList" }}{{/admin-new}}
     {{/liquid-if}}
+    {{#liquid-if status.edit class="admin-section" }}
+      {{liquid-outlet}}
+    {{/liquid-if}}
   </div>
-
-  {{outlet}}
 </div>

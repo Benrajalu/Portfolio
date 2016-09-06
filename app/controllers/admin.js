@@ -9,7 +9,6 @@ export default Ember.Controller.extend({
   theNew: false,
   init(){
     console.log("admin controller");
-    this.send('gotoAdmin');
     this.send('goToNew');
   },
   actions:{
@@ -26,12 +25,19 @@ export default Ember.Controller.extend({
       this.get('status').admin();
     },
     goToList() {
-      this.setProperties({'theList': true, 'theNew': false});
+      this.get('status').adminList();
       console.log('status: the list');
     },
     goToNew() {
-      this.setProperties({'theList': false, 'theNew': true});
+      this.get('status').adminNew();
       console.log('status: the new');
+    },
+    editRecord() {
+      this.get('status').adminEdit();
+    },
+    gotoEdit(){
+      console.log('working');
+      this.get('status').adminEdit();
     },
     deleteRecord(post){
       var store = this.get('store');
@@ -41,6 +47,8 @@ export default Ember.Controller.extend({
         });
       }
     }
-  }
+  },
+  sortedWorks: Ember.computed.sort('model', 'sortDefinition'),
+  sortDefinition: ['rank'],
 });
 

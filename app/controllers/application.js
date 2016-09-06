@@ -16,5 +16,9 @@ export default Ember.Controller.extend({
     gotoHome(){
       this.get('status').empty();
     },
+    gotoEdit(){
+      console.log('working');
+      this.get('status').adminEdit();
+    },
   }
 });
