@@ -10,6 +10,7 @@ export default DS.Model.extend({
   logo: DS.attr('string'),
   intro: DS.attr('string'),
   body: DS.attr('string'),
+  category: DS.attr('string'),
   rank: DS.attr('string')
 });
 

@@ -13,6 +13,7 @@
     <div class="work-entries">
       <ul class="main-entries">
         {{#each sortedWorks as |workEntry|}}
+          {{#if workEntry.category }}
           <li data-order="{{ workEntry.rank }}">
             {{#link-to "view-work" workEntry.uri}}
               <article>
@@ -31,6 +32,29 @@
               </article>
             {{/link-to}}
           </li>
+          {{/if}}
+        {{/each}}
+      </ul>
+      <h3 class="text-center"><span class="label">Mais aussi</span></h3>
+      <ul class="main-entries">
+        {{#each sortedWorks as |workEntry|}}
+          {{#unless workEntry.category }}
+          <li data-order="{{ workEntry.rank }}">
+            {{#link-to "view-work" workEntry.uri}}
+              <article>
+                <figure class="main-image">
+                  <img src="{{workEntry.teaser}}" alt="">
+                </figure>
+                <div class="copy">
+                  <section class="element">
+                    <h2>{{{workEntry.title}}}</h2>
+                    <h3>{{workEntry.type}}</h3>
+                  </section>
+                </div>
+              </article>
+            {{/link-to}}
+          </li>
+          {{/unless}}
         {{/each}}
       </ul>
     </div>

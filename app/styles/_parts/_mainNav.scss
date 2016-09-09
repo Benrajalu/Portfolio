@@ -97,18 +97,18 @@
     top:-100px;
     @include opacity(0);
     + #toTop{
-      left:-20px;
+      right:-20px;
       @include opacity(1);
       &:hover{
-        top:90px;
+        bottom:135px;
       }
     }
   }
 
   +#toTop{
     position: fixed;
-    top:100px;
-    left:-200px;
+    bottom:130px;
+    right:-200px;
     z-index: 99;
     text-transform: uppercase;
     @include transform(rotate(-90deg));

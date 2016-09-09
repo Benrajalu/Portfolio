@@ -1,0 +1,12 @@
+<button class="contactButton contact-element {{if contactShown "active"}} {{if status.toWork "displace"}}" {{action "togglePanel"}}>{{ fa-icon "close" }} Contact</button>
+<div class="contact-panel contact-element {{if contactShown "shown"}}">
+  <div class="item">Nantes, France</div>
+  <div class="item">rajalubenoit@gmail.com</div>
+  <div class="item">
+    <a href="www.linkedin.com/in/benoit-rajalu" target="_blank" title="LinkedIn">{{ fa-icon "linkedin"}}</a>
+    <a href="https://github.com/Benrajalu" target="_blank" title="Github">{{ fa-icon "github-alt"}}</a>
+    <a href="https://www.instagram.com/scbenr/" target="_blank" title="Instagram">{{ fa-icon "instagram"}}</a>
+    <a href="https://www.flickr.com/photos/benrajalu/" target="_blank" title="Flickr">{{ fa-icon "flickr"}}</a>
+  </div>
+</div>
+{{yield}}

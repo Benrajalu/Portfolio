@@ -13,6 +13,7 @@ export default Ember.Controller.extend({
         logo: this.get('logo'),
         intro: this.get('intro'),
         body: this.get('body'),
+        category: this.get('category'),
         timestamp: new Date().getTime()
       });
       newPost.save();

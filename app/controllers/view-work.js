@@ -5,6 +5,7 @@ export default Ember.Controller.extend({
   init(){
     console.log("view-work controller");
     this.send('gotoWork');
+    document.title = "Benoit Rajalu - Mon travail - Portfolio";
   },
   actions:{
     gotoWork(){

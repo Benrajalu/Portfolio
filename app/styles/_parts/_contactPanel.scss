@@ -1,0 +1,98 @@
+.contact-element{
+  position: relative;
+  z-index: 99;
+  @include transition(all 150ms ease-out);
+}
+
+.contactButton{
+  position: fixed;
+  bottom:40px;
+  right:-5px;
+  background:$black;
+  @include rounded(bold, 16px, #fff);
+  text-transform: uppercase;
+  padding:2px 15px 2px 10px;
+  border:0px;
+  cursor: pointer;
+  overflow: hidden;
+  &.displace{
+    right:auto;
+    left:-5px;
+  }
+  .fa{
+    position: absolute;
+    left:-40px;
+    top:50%;
+    margin-top:-9px;
+    @include transform(rotate(180deg));
+    @include transition(all 200ms ease-out 200ms);
+  }
+  &:hover{
+    background:$gold;
+    color:#fff;
+    right:0px;
+    &.displaced{
+      right:auto;
+      left:0px;
+    }
+  }
+  &:focus{
+    outline:none;
+  }
+  &.active{
+    bottom:210px;
+    padding-left: 25px;
+    .fa{
+      left: 8px;
+      @include transform(rotate(0deg));
+    }
+  }
+}
+
+.contact-panel{
+  position: fixed;
+  height: 200px;
+  line-height: 200px;
+  bottom: -200px;
+  width: 100%;
+  left:0px;
+  text-align: justify;
+  background: $gold;
+  padding:0 100px;
+  @include transition(all 200ms ease-out);
+  &.shown{
+    bottom:0px;
+  }
+  &:after{
+    content:"";
+    display: inline-block;
+    width: 100%;
+  }
+  .item{
+    display: inline-block;
+    line-height: 1;
+    vertical-align: middle;
+    @include rounded(bold, 19px, #fff);
+    a{
+      position: relative;
+      top:0px;
+      @include rounded(bold, 21px, #fff);
+      @include transition(all 100ms ease-out);
+      display: inline-block;
+      padding:0 2px;
+      height: 200px;
+      line-height: 200px;
+      @include transform(skew(0deg));
+      background-color: transparent;
+      &:hover{
+        background: #fff;
+        color:$gold;
+        padding:0 30px;
+        @include transform(skew(-6deg));
+        i{
+          @include transform(skew(6deg));
+        }
+      }
+    }
+  }
+}

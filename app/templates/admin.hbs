@@ -10,9 +10,10 @@
   <div class="visible-content">
     {{#liquid-if status.list class="admin-section"}}
       <div class="admin-content" id="current-posts">
-        <h3 class="list-title">Current entries</h3>
+        <h3 class="list-title">Work</h3>
         <ul class="listing">
           {{#each sortedWorks as |workEntry|}}
+            {{#if workEntry.category }}
             <li>
               <article>
                 <section class="element">
@@ -28,6 +29,26 @@
                 </section>
               </article>
             </li>
+            {{/if}}
+          {{/each}}
+        </ul>
+        <h3 class="list-title">Others</h3>
+        <ul class="listing">
+          {{#each sortedWorks as |workEntry|}}
+            {{#unless workEntry.category }}
+            <li>
+              <article>
+                <section class="element">
+                  <h2>{{{workEntry.title}}}</h2>
+                  <ul class="entry-menu">
+                    <li>{{#link-to "view-work" workEntry.uri class="view"}}View{{/link-to}}</li>
+                    <li {{ action "editRecord"}}>{{#link-to "admin.edit-work" workEntry.uri class="edit"}}Edit{{/link-to}}</li>
+                    <li><a href="#" {{ action "deleteRecord" workEntry.id }} class="remove">Remove</a></li>
+                  </ul>
+                </section>
+              </article>
+            </li>
+            {{/unless}}
           {{/each}}
         </ul>
       </div>

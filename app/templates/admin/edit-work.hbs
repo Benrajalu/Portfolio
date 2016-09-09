@@ -54,10 +54,16 @@
           {{input type="text" class="small" required="true" value=post.logo id="logo"}}
         </fieldset>
       </div>
-      <fieldset>
-        <label>Subtitle</label>
-        {{input type="text" required="true" value=post.subtitle id="subtile"}}
-      </fieldset>
+      <div class="images">
+        <fieldset>
+          <label>Subtitle</label>
+          {{input type="text" required="true" value=post.subtitle id="subtile"}}
+        </fieldset>
+        <fieldset>
+          <label>Category</label>
+          {{input type="text" required="true" value=post.category id="category"}}
+        </fieldset>
+      </div>
       <fieldset>
         <label>Intro copy</label>
         {{tinymce-editor options=options required="true" value=post.intro id="intro"}}
