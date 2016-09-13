@@ -122,6 +122,24 @@
       color:$black;
     }
   }
+
+  #logo-svg{
+    #fill{
+      @include transition(all 200ms ease-out);
+    }
+    .eyelid{
+      @include transform(translateY(0px));
+      @include transition(all 200ms ease-out);
+    }
+    &:hover{
+      #fill{
+        fill:#fff !important;
+      }
+      .eyelid{
+        @include transform(translateY(-5px));
+      }
+    }
+  }
 }
 
 .ember-view{

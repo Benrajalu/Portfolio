@@ -8,7 +8,9 @@
         </div>
         <div class="intro">
           {{{post.intro }}}
-          <p>URL: <a href="{{post.url}}" target="_blank">{{post.url}}</a></p>
+          {{#if post.category }}
+            <p>URL: <a href="{{post.url}}" target="_blank">{{post.url}}</a></p>
+          {{/if}}
         </div>
       </header>
 
