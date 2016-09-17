@@ -4,28 +4,16 @@ export default Ember.Component.extend({
   store: Ember.inject.service(),
   sortProperties: ['uri'],
   sortAscending: false, // sorts post by timestamp
-  didInsertElement: function(){
-    $('.post-publish').parsley({
-      errorClass: 'has-error',
-      successClass: 'has-success',
-      classHandler: function(el) {
-        return el.$element.closest("fieldset");
-      },
-      errorsWrapper: '<span class="help-block">',
-      errorTemplate: '<div></div>'
-    });
-  },
   actions: {
     postSaved : function(){
       this.sendAction('postSaved');
     },
     publishPost: function() {
+      var button = document.getElementById('submit');
       if(this.get('uri') && this.get('url') && this.get('title') && this.get('type') && this.get('subtitle') && this.get('teaser') && this.get('logo') && this.get('intro') && this.get('body') && this.get('rank')){
         var store = this.get('store');
         var scope =  this;
-        var button = document.getElementById('submit');
         button.innerHTML= 'Uploading...';
-        var bubble = this.send('postSaved');
         var newPost = store.createRecord('work-entry', {
           uri: this.get('uri'),
           url: this.get('url'),
@@ -54,10 +42,9 @@ export default Ember.Component.extend({
           scope.set('rank', '');
         }, function() {
           button.innerHTML= "Well it's a dud";
-        });;
+        });
       }
       else{
-        var button = document.getElementById('submit');
         button.innerHTML= 'Please fill out all the fields';
       }
     }

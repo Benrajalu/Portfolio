@@ -17,4 +17,6 @@
   {{/liquid-if}}
 </div>
 
-{{#contact-panel}}{{/contact-panel}}
+{{#unless status.toAdmin }}
+  {{#contact-panel}}{{/contact-panel}}
+{{/unless}}

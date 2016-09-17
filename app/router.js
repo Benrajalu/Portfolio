@@ -11,9 +11,10 @@ Router.map(function() {
   this.route('work');
   this.route('view-work', { path: 'work/:uri' });
   this.route('new-work');
-  this.route('admin', function() {
+  this.authenticatedRoute('admin', function() {
     this.route('edit-work', { path: 'edit/:uri' });
   });
+  this.route('login');
 });
 
 export default Router;

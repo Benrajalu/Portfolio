@@ -1,0 +1,15 @@
+<div class="content wysiwyg login" id="admin">
+  <div class="visible-content">
+    {{ logo-fragment }}
+    <form>
+      <label for="identification">Login</label>
+      {{input type="text" value=userEmail placeholder="Email"}}
+      <label for="password">Password</label>
+      {{input type="password" value=userPassword placeholder="Password"}}
+      <button type="submit" {{action "login" "password"}}>Login</button>
+      {{#if errorMessage}}
+        <p>{{errorMessage}}</p>
+      {{/if}}
+    </form>
+  </div>
+</div>

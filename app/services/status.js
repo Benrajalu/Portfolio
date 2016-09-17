@@ -29,6 +29,10 @@ export default Ember.Service.extend({
     this.setProperties({'toWork': false, 'toAbout': false, 'toHome': false, 'toAdmin': true, 'edit' : false, 'list': false, 'new': true});
     console.log('status: admin new');
   },
+  adminLog() {
+    this.setProperties({'toWork': false, 'toAbout': false, 'toHome': false, 'toAdmin': true, 'edit' : false, 'list': false, 'new': false});
+    console.log('status: admin login');
+  },
   adminList() {
     this.setProperties({'toWork': false, 'toAbout': false, 'toHome': false, 'toAdmin': true, 'edit' : false, 'list': true, 'new': false});
     console.log('status: admin list');

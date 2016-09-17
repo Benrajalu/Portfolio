@@ -5,13 +5,13 @@ export default Ember.Component.extend({
   didInsertElement(){
     var element = $('#main-nav'),
         toTop = $('#toTop');
-    window.addEventListener('scroll', function(e) {
+    window.addEventListener('scroll', function() {
       var currentScroll = window.scrollY;
       if(currentScroll > 80){
-        $(element).addClass('collapsed')
+        $(element).addClass('collapsed');
       }
       else{
-        $(element).removeClass('collapsed')
+        $(element).removeClass('collapsed');
       }
     });
     $(toTop).click(function(){

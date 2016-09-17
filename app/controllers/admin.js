@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  session: Ember.inject.service('session'),
   store: Ember.inject.service(),
   sortProperties: ['uri'],
   sortAscending: false, // sorts post by timestamp
@@ -12,6 +13,9 @@ export default Ember.Controller.extend({
     this.send('goToNew');
   },
   actions:{
+    invalidateSession() {
+      this.get('session').invalidate();
+    },
     gotoWork(){
       this.get('status').work();
     },
@@ -46,6 +50,10 @@ export default Ember.Controller.extend({
           post.destroyRecord(); // => DELETE to /posts/2
         });
       }
+    },
+    signOut: function() {
+      this.get('session').close();
+      this.transitionToRoute('login');
     }
   },
   sortedWorks: Ember.computed.sort('model', 'sortDefinition'),

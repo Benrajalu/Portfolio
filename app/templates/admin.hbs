@@ -3,7 +3,10 @@
     <ul>
       <li><button {{ action "goToList"}} class="{{if status.list "active" }}"><span>Current <br/><strong>projects</strong> ({{ model.length }})</span></button></li>
       <li><button {{ action "goToNew"}} class="{{if status.new "active" }}"><span>New <br/><strong>project</strong></span></button></li>
-      <li {{action "gotoHome"}}>{{# link-to 'index'}}Back to site{{/ link-to}}</li>
+      {{#if session.isAuthenticated}}
+        <li class="action"><a {{action 'signOut'}}>Logout</a></li>
+      {{/if}}
+      <li class="action" {{action "gotoHome"}}>{{# link-to 'index'}}Back to site{{/ link-to}}</li>
     </ul>
   </nav>
 

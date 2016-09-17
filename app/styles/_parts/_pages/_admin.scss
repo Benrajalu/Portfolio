@@ -23,16 +23,18 @@
       vertical-align: middle;
       height: 80px;
       line-height: 80px;
-      &:last-child{
+      &.action{
         float: right;
+        padding-left: 10px;
         a{
           @include rounded(medium, 14px, #AEB3B5);
           position: relative;
-          left:0px;
+          top:0px;
           @include transition(all 200ms ease-out);
           text-decoration: none;
+          cursor: pointer;
           &:hover{
-            left:-3px;
+            top:-3px;
             color:$black;
           }
         }
@@ -79,6 +81,9 @@
     padding:40px 30px;
     border:1px solid #E8E8E8;
     @include border-radius(2px 2px 0px 0px);
+    &.center{
+      vertical-align: middle;
+    }
     .admin-content{
       display: block;
       .list-title{
@@ -276,6 +281,73 @@
               }
             }
           }
+        }
+      }
+    }
+  }
+
+  &.login{
+    display: block;
+    position: fixed;
+    top:0px;
+    height: 100%;
+    width: 100%;
+    z-index: 98;
+    @include transform(translateX(0px));
+    text-align: center;
+    vertical-align: middle;
+    max-width: 100%;
+    &:after, &:before{
+      content:"";
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+    }
+    .visible-content{
+      position: relative;
+      top:-30px;
+      display: inline-block;
+      width:100%;
+      max-width: 350px;
+      text-align: center;
+      vertical-align: middle;
+      @include transform(translateX(0px));
+      svg{
+        display: block;
+        margin:0 auto 20px;
+      }
+      label, input{
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+        text-align: left;
+      }
+      label{
+        @include rounded(light, 12px, $black);
+      }
+      input{
+        height: 40px;
+        line-height: 40px;
+        padding:0 10px;
+        border:1px solid $gold;
+        margin-bottom: 20px;
+        @include rounded(book, 14px, $black);
+      }
+      button{
+        @include transition(all 200ms ease-out);
+        border:1px solid $brown;
+        background:$brown;
+        @include rounded(bold, 16px, #fff);
+        padding:4px 15px;
+        text-transform: uppercase;
+        cursor: pointer;
+        &:hover{
+          background:transparent;
+          color:$brown;
+        }
+        +p{
+          @include rounded(bold, 12px, $black);
+          padding-top:20px;
         }
       }
     }
