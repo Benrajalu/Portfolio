@@ -34,4 +34,21 @@
       }
     }
   }
+
+  @media screen and (max-width:1200px)  {
+    .visible-content{
+      .main-content{
+        .identity{
+          margin-bottom: 50px;
+          h1, h2{
+            font-size: 20px;
+          }
+        }
+      }
+      .featured-title{
+        font-size: 50px;
+        margin-bottom: 50px;
+      }
+    }
+  }
 }

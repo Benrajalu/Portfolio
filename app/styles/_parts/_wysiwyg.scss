@@ -1,0 +1,101 @@
+.wysiwyg{
+  .constrained-container{
+    padding:0 70px;
+    display: block;
+    width: 100%;
+  }
+  .free-container{
+    padding-left:60px;
+    width: 200%;
+    display: block;
+    &.right{
+      text-align: right;
+      padding-right: 60px;
+      padding-left:0px;
+      width: 100%;
+      position: relative;
+      left:-200px;
+      .featured-title{
+        width: 200%;
+        display: block;
+        text-align: left;
+        display: inline-block;
+      }
+    }
+    &.left{
+      width: 100%;
+      position: relative;
+      left:-30px;
+    }
+  }
+  .featured-title{
+    @include aqua(63px, $black);
+    margin-bottom: 80px;
+    line-height: 1.3;
+    strong{
+      color:$brown;
+    }
+  }
+  .copy{
+    @include rounded(light, 19px, $black);
+    line-height: 1.3;
+    a{
+      text-decoration: none;
+      color:$brown;
+      display: inline-block;
+      @include transition(all 200ms ease-out);
+      position: relative;
+      &:after{
+        content:"";
+        display: block;
+        position: absolute;
+        top:0px;
+        left:0;
+        right:0;
+        margin:0 auto;
+        width:0px;
+        height: 100%;
+        background:$brown;
+        @include transition(all 100ms ease-out);
+        z-index: -1;
+        @include opacity(0.8);
+      }
+      &:hover{
+        color:#fff;
+        padding:0 2px;
+        &:after{
+          width: 100%;
+        }
+      }
+      &.button{
+        @include rounded(medium, 19px, $brown);
+        &:after{
+          height: 2px;
+          top:100%;
+          margin-bottom: -3px;
+        }
+      }
+    }
+    strong{
+      @include rounded(medium, 19px, $black);
+      display: block;
+    }
+    footer{
+      padding-top: 40px;
+      h3{
+        @include rounded(medium, 19px, $black);
+      }
+    }
+  }
+
+  @media screen and (max-width:1200px)  {
+    .featured-title{
+      font-size: 50px;
+    }
+    .free-container{
+      &.right{
+        left:-50px;
+      }
+    }
+  }
+}

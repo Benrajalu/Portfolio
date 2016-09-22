@@ -9,6 +9,7 @@
     @include transform(translateX(0px));
     text-align: left;
     vertical-align: middle;
+    -webkit-overflow-scrolling: touch;
     &:after, &:before{
       content:"";
       display: inline-block;
@@ -98,9 +99,13 @@
               h2{
                 @include rounded(bold, 24px, $black);
                 margin-bottom: 3px;
+                text-align: left;
               }
               h3{
                 @include rounded(light, 14px, $black);
+              }
+              img{
+                max-width: 85px;
               }
             }
           }
@@ -111,6 +116,113 @@
             .copy{
               bottom:20px;
             }
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width:1520px){
+    .visible-content{
+      .main-content{
+        width: 500px;
+        .featured-title{
+          font-size: 50px;
+        }
+        .free-container.left{
+          width: 110%;
+        }
+      }
+      .work-entries{
+        padding-left: 550px;
+      }
+    }
+  }
+  @media screen and (max-width:1365px){
+    .visible-content{
+      .main-content{
+        width: 600px;
+      }
+      .work-entries{
+        padding-left: 630px;
+        .main-entries{
+          padding:10px 0px;
+          @include clearfix();
+          li{
+            display: block;
+            width: 100%;
+            max-width: 550px;
+            float: none;
+            margin:0 auto 10px;
+            .copy{
+              padding-right: 80px;
+              .element.image{
+                position: absolute;
+                top:0px;
+                right: 0px;
+                width: 80px;
+                line-height: 110px;
+                text-align: center;
+                img{
+                  display: inline-block;
+                  vertical-align: middle;
+                  width: 70px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width:1000px){
+    .visible-content{
+      position: relative;
+      padding-top: 150px;
+      overflow: auto;
+      max-height: 100%;
+      .main-content{
+        width: 100%;
+        .featured-title{
+          margin-bottom: 30px;
+          left: 0px;
+        }
+        .free-container.left{
+          left:0px;
+          width: 100%;
+        }
+      }
+      .work-entries{
+        width: 100%;
+        position: relative;
+        padding-top: 40px;
+        padding-left: 60px;
+        padding-right: 60px;
+        .main-entries{
+          li{
+            display: block;
+            width: 50%;
+            float: left;
+            margin:0 auto 10px;
+            .copy{
+              .element{
+                h2{
+                  font-size: 20px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width:800px){
+    .visible-content{
+      .work-entries{
+        .main-entries{
+          li{
+            float: none;
+            width: 100%;
           }
         }
       }
