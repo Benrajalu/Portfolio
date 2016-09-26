@@ -22,6 +22,11 @@
       text-align: left;
       vertical-align: middle;
       @include transform(translateX(0px));
+      .free-container{
+        padding-left:60px;
+        width: 200%;
+        display: block;
+      }
       .identity{
         margin-bottom: 100px;
         h1{
@@ -33,21 +38,105 @@
         }
       }
     }
-  }
 
-  @media screen and (max-width:1200px)  {
-    .visible-content{
+    @media screen and (max-width:1200px)  {
       .main-content{
         .identity{
           margin-bottom: 50px;
           h1, h2{
-            font-size: 20px;
+            font-size: 25px;
           }
         }
       }
       .featured-title{
         font-size: 50px;
         margin-bottom: 50px;
+      }
+    }
+
+    @media only screen and (max-width: 1000px){
+      .main-content{
+        width: auto;
+        max-width: 98%;
+        padding-top:90px;
+        text-align: center;
+        max-height: 100%;
+        overflow: auto;
+        .featured-title{
+          margin-bottom: 30px;
+          left: 0px;
+        }
+        .free-container{
+          left:0px;
+          width: 100%;
+          padding:0 60px;
+        }
+        p{
+          max-width: 600px;
+          margin:0 auto;
+        }
+      }
+    }
+
+    @media only screen and (max-width: 600px){
+      .main-content{
+        //display: block;
+        width: 98%;
+        padding:80px 15px 30px;
+        max-height: 100%;
+        overflow: auto;
+        .identity{
+          margin-bottom: 30px;
+          padding:0px;
+          h1, h2{
+            font-size: 18px;
+          }
+        }
+        .free-container{
+          padding:0px;
+        }
+        .featured-title{
+          font-size: 36px;
+          line-height: 38px;
+          br{
+            display: none;
+          }
+        }
+        .constrained-container{
+          padding:0px;
+          p{
+            font-family: 'gotham-rounded-medium';
+          }
+        }
+      }
+    }
+
+    @media only screen and (max-width: 400px){
+      .main-content{
+        //display: block;
+        width: 98%;
+        padding:50px 15px 30px;
+        .identity{
+          margin-bottom: 30px;
+          padding:0px;
+          h1, h2{
+            font-size: 17px;
+          }
+        }
+        .featured-title{
+          font-size: 30px;
+          line-height: 32px;
+          br{
+            display: none;
+          }
+        }
+        .constrained-container{
+          padding:0px 10px;
+          p{
+            font-size: 14px;
+            font-family: 'gotham-rounded-medium';
+          }
+        }
       }
     }
   }

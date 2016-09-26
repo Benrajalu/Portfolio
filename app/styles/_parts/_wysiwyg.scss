@@ -4,30 +4,6 @@
     display: block;
     width: 100%;
   }
-  .free-container{
-    padding-left:60px;
-    width: 200%;
-    display: block;
-    &.right{
-      text-align: right;
-      padding-right: 60px;
-      padding-left:0px;
-      width: 100%;
-      position: relative;
-      left:-200px;
-      .featured-title{
-        width: 200%;
-        display: block;
-        text-align: left;
-        display: inline-block;
-      }
-    }
-    &.left{
-      width: 100%;
-      position: relative;
-      left:-30px;
-    }
-  }
   .featured-title{
     @include aqua(63px, $black);
     margin-bottom: 80px;

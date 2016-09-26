@@ -140,6 +140,19 @@
       }
     }
   }
+
+  @media only screen and (max-width: 1000px){
+    width:100%;
+    right:0px;
+    margin-right: 0px;
+    &.toWork{
+      right: 0px;
+      margin-right: 0px;
+    }
+    ul li.entry a{
+      background:#fff;
+    }
+  }
 }
 
 .ember-view{

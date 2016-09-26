@@ -11,7 +11,7 @@
     </div>
 
     <div class="work-entries">
-      <ul class="main-entries">
+      <ul class="work-listing">
         {{#each sortedWorks as |workEntry|}}
           {{#if workEntry.category }}
           <li data-order="{{ workEntry.rank }}">
@@ -36,7 +36,7 @@
         {{/each}}
       </ul>
       <h3 class="text-center"><span class="label">Mais aussi</span></h3>
-      <ul class="main-entries">
+      <ul class="work-listing">
         {{#each sortedWorks as |workEntry|}}
           {{#unless workEntry.category }}
           <li data-order="{{ workEntry.rank }}">

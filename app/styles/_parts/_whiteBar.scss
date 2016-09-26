@@ -18,4 +18,27 @@
     right:0%;
     margin-right: 0px;
   }
+
+  @media only screen and (max-width: 1000px){
+    height: 80%;
+    width: 200%;
+    max-width: 200%;
+    left:-50%;
+    @include transform(rotate(10deg));
+    top:-20%;
+    right: 0px;
+    margin-right: 0px;
+    &.toWork{
+      @include transform(rotate(-10deg));
+      height: 60%;
+      top:-20%;
+      right: 0px;
+      margin-right: 0px;
+    }
+    &.toAbout{
+      //top:40%;
+      height: 40%;
+      @include transform(rotate(-5deg));
+    }
+  }
 }

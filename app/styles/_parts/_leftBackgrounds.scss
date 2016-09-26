@@ -42,4 +42,22 @@
       background-position: -200px top;
     }
   }
+
+  @media only screen and (max-width: 1000px){
+    position: fixed;
+    .index-bg, .about-bg{
+      width: 100%;
+      height: 80%;
+      top:auto;
+      bottom:0%;
+      @include opacity(0.1);
+    }
+    .about-bg{
+      background-position: bottom center;
+      height: 100%;
+      bottom: 0px;
+      @include opacity(0.2);
+      background-size: cover;
+    }
+  }
 }

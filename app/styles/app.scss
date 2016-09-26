@@ -20,15 +20,6 @@ body{
   min-height: 100%;
   position: relative;
   overflow: auto;
-  &:after{
-    content:"";
-    display: block;
-    position: absolute;
-    left:-999px;
-    background: url('../assets/images/index-BG.jpg') top left no-repeat;
-    background: url('../assets/images/index-BG.jpg') top left no-repeat,
-                url('../assets/images/about-BG.jpg') top left no-repeat;
-  }
 }
 
 @import "_parts/liquid";
