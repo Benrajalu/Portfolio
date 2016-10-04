@@ -56,8 +56,9 @@
       background-position: bottom center;
       height: 100%;
       bottom: 0px;
-      @include opacity(0.2);
+      @include opacity(0.1);
       background-size: cover;
+      background-position: -80px top;
     }
   }
 }

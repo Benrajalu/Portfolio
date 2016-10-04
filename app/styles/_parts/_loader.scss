@@ -1,0 +1,71 @@
+#loader{
+  position: fixed;
+  width: 100%;
+  top:0px !important;
+  left:0px !important;
+  margin:0px;
+  z-index: 100;
+  text-align: center;
+  padding:20px;
+  color:white;
+  height: 100%;
+  line-height: 100vh;
+  @include transition(all 200ms ease-out);
+  @include opacity(1);
+  background-color: #f6f6f6; // Old browsers
+  @include filter-gradient(#f6f6f6, #ffffff, vertical); // IE6-9
+  @include background-image(linear-gradient(top,  #f6f6f6 47%,#ffffff 100%));
+  transform:translateX(0px) !important;
+  text-align: center;
+  &:after, &:before{
+    content:"";
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+    position: relative;
+  }
+  .content{
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    background: $gold;
+    height: 100px;
+    width: 100px;
+    line-height: 100px;
+    @include border-radius(100%);
+    @include rounded(bold, 50px, #fff);
+    @include transition(all 300ms cubic-bezier(0.695, -0.600, 0.355, 1.650));
+    position: relative;
+    top:-60px;
+    &:before, &:after{
+      content:"";
+      display: block;
+      height: 10px;
+      width: 10px;
+      background: $gold;
+      @include border-radius(100%);
+      position: absolute;
+      top:50%;
+      margin-top:-5px;
+      @include transition(all 200ms cubic-bezier(0.695, -0.600, 0.355, 1.650));
+    }
+    &:before{
+      left:0px;
+    }
+    &:after{
+      right:0px;
+    }
+    &.go{
+      font-size: 70px;
+      height: 130px;
+      width: 130px;
+      line-height: 130px;
+      &:before{
+        left:-20px;
+      }
+      &:after{
+        right:-20px;
+      }
+    }
+  }
+}

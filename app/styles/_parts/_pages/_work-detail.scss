@@ -38,7 +38,10 @@
       padding-left: 40px;
       text-align: left;
       p{
-        margin-bottom: 0px;
+        margin-bottom: 5px;
+        &:last-child{
+          margin-bottom: 0px;
+        }
       }
     }
   }
@@ -92,6 +95,84 @@
     }
     strong{
       font-family: 'gotham-rounded-medium';
+    }
+  }
+
+  @media only screen and (max-width: 1120px){
+    .contents{
+      padding:0 20px;
+      img{
+        max-width: 85%;
+      }
+    }
+  }
+  @media only screen and (max-width: 1000px){
+    padding-top: 170px;
+    .title-wrap{
+      margin-bottom: 40px;
+      .title-content, .intro{
+        float: none;
+        width: 100%;
+        text-align: left;
+      }
+      .title-content{
+        margin-bottom: 30px;
+      }
+      .title{
+        margin-bottom: 5px;
+      }
+      .title, .subtitle{
+        text-align: center;
+        hr, br{
+          display: none;
+        }
+      }
+    }
+    .intro{
+      padding:0 40px;
+    }
+  }
+
+  @media only screen and (max-width: 600px){
+    padding-top: 120px;
+    .title-wrap{
+      .title{
+        font-size: 36px;
+        line-height: 43px;
+      }
+    }
+    .contents{
+      padding:0 20px;
+      .intro{
+        padding:0px;
+        p{
+          font-family: 'gotham-rounded-book';
+        }
+      }
+      img{
+        max-width: 98%;
+        padding:3px;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 400px){
+    .title-wrap{
+      .title{
+        font-size: 30px;
+        line-height: 32px;
+      }
+      .intro{
+        p{
+          font-size: 14px;
+          font-family: 'gotham-rounded-medium';
+        }
+      }
+    }
+    .contents{
+      p{
+        font-size: 14px;
+      }
     }
   }
 }

@@ -5,7 +5,8 @@ module.exports = function(environment) {
     modulePrefix: 'portfolio',
     environment: environment,
     rootURL: '/',
-    locationType: 'auto',
+    locationType: 'router-scroll',
+    historySupportMiddleware: true,
     firebase: {
       apiKey: 'AIzaSyBNNQjA6EgA3B6XObFjkKDc4_9C8TWsSfM',
       authDomain: "portfolio-ember.firebaseapp.com",
@@ -48,7 +49,8 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     ENV.rootURL = '/';
-    ENV.locationType = 'history';
+    ENV.locationType= 'router-scroll';
+    ENV.historySupportMiddleware= true;
   }
 
   return ENV;

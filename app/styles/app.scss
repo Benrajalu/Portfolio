@@ -18,15 +18,27 @@ body{
   @include filter-gradient(#f6f6f6, #ffffff, vertical); // IE6-9
   @include background-image(linear-gradient(top,  #f6f6f6 47%,#ffffff 100%));
   min-height: 100%;
+  min-height: 100vh;
   position: relative;
   overflow: auto;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  &:before, &:after{
+    content:"";
+    position: absolute;
+    left:-200%;
+  }
+  &:before{
+    background:url('../assets/images/index-BG.jpg');
+  }
+  &:after{
+    background:url('../assets/images/about-BG.jpg');
+  }
 }
 
 @import "_parts/liquid";
 
-
-
-
+@import "_parts/loader";
 @import "_parts/mainNav";
 @import "_parts/whiteBar";
 

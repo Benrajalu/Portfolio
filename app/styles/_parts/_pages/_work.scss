@@ -248,6 +248,7 @@
       }
     }
     @media only screen and (max-width: 600px){
+      padding-top: 100px;
       .main-content{
         width: 98%;
         padding:0px 15px 30px;
@@ -258,7 +259,7 @@
         }
         .featured-title{
           font-size: 36px;
-          line-height: 40px;
+          line-height: 43px;
           br{
             display: none;
           }
@@ -266,7 +267,9 @@
         .constrained-container{
           padding:0px;
           p{
-            font-family: 'gotham-rounded-medium';
+            font-size: 16px;
+            line-height: 1.4;
+            font-family: 'gotham-rounded-book';
           }
         }
       }
@@ -284,7 +287,7 @@
       .main-content{
         .featured-title{
           font-size: 30px;
-          line-height: 32px;
+          line-height: 43px;
           br{
             display: none;
           }
@@ -292,6 +295,7 @@
         .constrained-container{
           p{
             font-size: 14px;
+            font-family: 'gotham-rounded-medium';
           }
         }
       }
